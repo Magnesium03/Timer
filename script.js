@@ -10,6 +10,27 @@ let timerInterval;
 let totalSeconds = 0;
 let isRunning = false;
 
+// Button State Management
+function checkButtonState() {
+    const hours = parseInt(hrsInput.value) || 0;
+    const minutes = parseInt(minInput.value) || 0;
+    const seconds = parseInt(secInput.value) || 0;
+    const total = hours * 3600 + minutes * 60 + seconds;
+
+    if (total <= 0) {
+        startBtn.disabled = true;
+        resetBtn.disabled = true;
+        startBtn.classList.add('disabled');
+        resetBtn.classList.add('disabled');
+    } else {
+        startBtn.disabled = false;
+        resetBtn.disabled = false;
+        startBtn.classList.remove('disabled');
+        resetBtn.classList.remove('disabled');
+    }
+}
+
+
 // Input Validation and Formatting
 function formatInput(input) {
     let value = parseInt(input.value);
@@ -107,6 +128,9 @@ function resetTimer() {
     // UI Updates
     startBtn.style.display = 'flex';
     pauseBtn.style.display = 'none';
+    
+    // Check button state
+    checkButtonState();
 }
 
 // Event Listeners
@@ -119,6 +143,9 @@ resetBtn.addEventListener('click', resetTimer);
 
 // Input handling
 [hrsInput, minInput, secInput].forEach(input => {
+    // Add 'input' event for real-time validation as user types
+    input.addEventListener('input', checkButtonState);
+
     input.addEventListener('change', () => {
         let val = parseInt(input.value);
         if (isNaN(val) || val < 0) val = 0; // Handle invalid inputs
@@ -131,6 +158,8 @@ resetBtn.addEventListener('click', resetTimer);
         // Basic validation bounds
         if (input.id === 'hrs' && val > 99) input.value = 99;
         if ((input.id === 'min' || input.id === 'sec') && val > 59) input.value = 59;
+        
+        checkButtonState(); // Re-check after formatting
     });
 
     // Optional: Clear "00" on focus for easier typing
@@ -144,9 +173,12 @@ resetBtn.addEventListener('click', resetTimer);
     input.addEventListener('blur', () => {
         if (input.value === '') {
             input.value = '00';
+            checkButtonState(); // Re-check if it went back to 00
         }
     });
 });
 
 // Initialize inputs to 00
 updateInputs();
+// Initial check
+checkButtonState();

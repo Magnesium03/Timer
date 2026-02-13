@@ -148,6 +148,15 @@ input::-webkit-inner-spin-button {
     background-color: #FF6B81;
 }
 
+.btn:disabled, .btn.disabled {
+    background-color: #222C45; /* Darker background for disabled state */
+    color: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+    transform: none;
+    pointer-events: none;
+    box-shadow: none;
+}
+
 .btn.hidden {
     display: none;
 }
