@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Spoqa+Han+Sans+Neo:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+    background: linear-gradient(135deg, #EBEFFE 0%, #CED6F2 100%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header {
+    margin-bottom: 50px;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: lowercase;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-card {
+    background-color: #3F5185;
+    border-radius: 20px;
+    padding: 40px 60px;
+    width: 400px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+}
+
+.timer-card h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.timer-divider {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.time-inputs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Align inputs and colons at the bottom */
+    margin-bottom: 40px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+}
+
+.input-group label {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.input-group input {
+    width: 100%;
+    height: 80px;
+    background-color: #334370;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.input-group input:focus {
+    background-color: #2b3960;
+}
+
+/* Hide number input spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.colon {
+    font-size: 36px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    padding-bottom: 15px; /* Adjust vertical alignment */
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+    color: white;
+    min-width: 120px;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn.start {
+    background-color: #5180FF;
+}
+
+.btn.pause {
+    background-color: #1FBDA6;
+}
+
+.btn.reset {
+    background-color: #FF6B81;
+}
+
+.btn.hidden {
+    display: none;
+}
+
+.icon {
+    font-size: 16px;
+}
+
+footer {
+    position: absolute;
+    bottom: 30px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
